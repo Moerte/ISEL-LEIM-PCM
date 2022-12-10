@@ -1,2 +1,2 @@
 # ISEL-LEIM-PCM
-Trabalhos feitos no contexto da licenciatura em Engenharia Informática e Multimedia no Instituto Superior de Engenharia de Lisboa
+Projects done in the context of the subject Production of Multimedia Content of the degree in Computer Engineering and Multimedia at the Instituto Superior de Engenharia de Lisboa.
