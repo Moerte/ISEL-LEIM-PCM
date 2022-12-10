@@ -1,0 +1,113 @@
+/*h1{
+    font-family: 'casino_3d_filled_marqueeRg';
+    font-weight: lighter;
+    color: yellow;
+       
+}
+section{
+    background-image: url(/entrance_teste.jpg);
+    background-size: 100% 100%;
+    height: 120vh;
+}
+.tableMargin{
+    height: 41vh;
+    background-color: tomato;
+} 
+*/
+
+.doors{
+    height: 100%;
+    width: 100vw;
+    
+    
+      
+}
+.door_1{
+    height: 100vh;
+    
+    background-image: url(../multimedia/img/door1_teste.png);
+    background-size: 100% 100%;
+    
+    
+}
+.door_2{
+    height: 100vh;
+    background-image: url(../multimedia/img/door2_teste.png);
+    background-size: 100% 100%;
+    
+    
+}
+.door_1.hovered{
+    -webkit-transform:perspective(300) rotateY(20deg) ;
+    -webkit-transform-origin: 0% 0%;
+    
+    
+}
+.door_2.hovered{
+    -webkit-transform:perspective(300) rotateY(-20deg) ;
+    -webkit-transform-origin: 100% 0%;
+  
+}
+.doors:hover .door_1{
+    -webkit-transform:perspective(300) rotateY(20deg) ;
+    -webkit-transform-origin: 0% 0%;
+    
+    
+}
+.doors:hover .door_2{
+    -webkit-transform:perspective(300) rotateY(-20deg) ;
+    -webkit-transform-origin: 100% 0%;
+  
+}
+@-webkit-keyframes door{
+    0%{
+        -webkit-transform:perspective(300) rotateY(80deg) ;
+        -webkit-animation-timing-function: ease-in;
+    }
+    50%{
+        -webkit-transform:perspective(300) rotateY(0deg) ;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100%{
+        -webkit-transform:perspective(300) rotateY(20deg) ;
+        -webkit-animation-timing-function: ease-out;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    
+  }
+@media only screen and (min-width: 768px) {
+    
+}
+@media only screen and (min-width: 992px) {
+    section{
+        background-image: url(../multimedia/img/entrance_back.png);
+        background-size: 100% 100%;
+        height: 120vh;
+    }
+    .doors:onclick{
+        transform: scale(3);
+    }
+    .tableMargin{
+        height: 41vh;
+        background-color: tomato;
+    } 
+    
+    .doors{
+        width: 26.48%;
+        margin-right: 30vw;
+        margin-left: 36.4vw;
+        
+        
+        transition: transform .2s;
+    }
+    .door_1{
+        height: 56.3vh; 
+            
+    }
+    .door_2{
+        height: 56.3vh;
+               
+    }
+}

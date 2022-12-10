@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="js/blackjack_object.js"></script>
+    <script src="js/blackjack_manager.js"></script>
+    <script src="js/face_fetcher.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Lobster&family=Montserrat:ital@1&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d974e5062b.js" crossorigin="anonymous"></script>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>BlackJack</title>
+</head>
+<body>
+    <!-- the winner panel -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header float-left bg-secondary border-bottom border-dark">
+                <h3>And the Winner is...</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div id="winnerModal" class="modal-body bg-success text-white text-center p-3">
+            </div>
+        </div>
+    </div>
+    <!-- navbar -->
+    <nav class="shadow-lg border-bottom border-dark navbar py-3 navbar-dark navbar-expand-md bg-secondary col-lg-12">
+        <div class="container">
+            <!-- logo -->
+            <a href="home.html" class="navbar-brand h1 ">
+                <h1 class="mt-0 text-body"><img src="multimedia/img/icon2.png" width="80" alt="Icon Error!"> BlackJack
+                </h1>
+            </a>
+        </div>
+        <div class="container">
+            <div class="col text-center mb-3 mt-3">
+                <h1 id="dealer" class="mt-0">Dealer</h1>
+                <h4>Points: <span id="dealer_point"></span></h4>
+            </div>
+        </div>
+        <div class="container">
+        </div>
+    </nav>
+    <section id="game">
+        <div class="row col-12 pt-5">
+            <div class="container-fluid">
+                <div id="dealerGroup">
+                </div>
+            </div>
+        </div>
+        <div class="row col-12 mt-4">
+            <div class="container-fluid">
+                <div id="playerGroup">
+                </div>
+            </div>
+        </div>
+        <div class="row col-12 pb-5">
+            <div class="col-md-6 col-sm-12 mt-2">
+                <button id="new_game" class="btn btn-info btn-circle ml-5 btn-effect" onclick="new_game()"><span>New
+                        Game</span></button>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="btn-group">
+                    <button id="card" class="btn btn-success btn-circle mr-3 btn-effect" type="button"
+                        onclick="player_play()"><span>Hit</span></button>
+                    <button id="stand" class="btn btn-danger btn-circle mr-5  btn-effect" type="button"
+                        onclick="dealer_finish()"><span>Stand</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="py-3 bg-secondary col-lg-12">
+        <div class="container">
+
+            <div class="col text-center mb-3 mt-3">
+                <h4>Points: <span id="player_point"></span></h4>
+                <h1 id="player" class="mt-0">Player</h1>
+
+            </div>
+        </div>
+    </footer>
+    <section>
+        <script>
+            window.onload = new_game();
+        </script>
+    </section>
+    <!-- <section id="sec_debug">
+        <p id="debug"></p>
+    </section>-->
+</body>
+
+</html>

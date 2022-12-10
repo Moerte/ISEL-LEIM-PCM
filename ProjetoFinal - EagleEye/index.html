@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PCM Final Project - Visual Search">
+    <meta name="keywords" content="HTML5, CSS, JavaScript">
+    <meta name="author" content="Nuno Oliveira e Luis Pedreirinha">
+    <meta charset="UTF-8">
+    <title>EagleEye Images</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/VSearchStyle.css">
+</head>
+
+<body data-mode="dark">
+    <input class="hide" type="hidden" value="" id="search_input">
+    <input class="hide" type="hidden" value="" id="search_color">
+    <input class="hide" type="file" id="search_image" accept="image/*">
+    <div class="page-search hide-if-results">
+        <div onclick="toggledDarkMode()" class="mode-toggle">
+            <span class="icon dark-icon">
+                <img src="Images/svg/moon.svg" alt="Toggle Dark Mode" width="30">
+            </span>
+            <span class="icon light-icon">
+                <img src="Images/svg/sunny.svg" alt="Toggle Light Mode" width="30">
+            </span>
+        </div>
+    </div>
+    <main>
+        <section class="search-box-content show-if-results">
+            <div style="height: 80px" class="block">
+                <div class="logo-small">
+                    <a href="#">
+                        <h1 class="Title">
+                            <img src="Images/eagle_white.png" width="75" height="75" class="image-small">
+                            Eagle<span class="Title">Eye ima</span><span>ges</span>
+                        </h1>
+                    </a>
+                </div>
+                <div style="height: 40px;width: 100%;margin: 45px auto 0 55px;" class="block">
+                    <div class="search-box">
+                        <div class="search-box-input search-box-input-small">
+                            <div class="search-box-input-image">
+                                <span>
+                                    <img src="Images/face/img_1.jpg">
+                                </span>
+                                <p></p>
+                                <span class="search-box-input-image-close">&#10005;</span>
+                            </div>
+                            <input value="" type="search" class="search_input">
+                        </div>
+                        <div class="search-box-icons">
+                            <button class="choose_image icon">
+                                <img src="Images/svg/image2.svg" alt="" width="20">
+                            </button>
+
+                            <button class="search_submit icon">
+                                <img src="Images/svg/search.svg" alt="" width="20">
+                            </button>
+                        </div>
+                    </div>
+                    <div onclick="toggledDarkMode()" class="mode-toggle">
+                        <span class="icon dark-icon">
+                            <img src="Images/svg/moon.svg" alt="Toggle Dark Mode" width="30">
+                        </span>
+                        <span class="icon light-icon">
+                            <img src="Images/svg/sunny.svg" alt="Toggle Light Mode" width="30">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="block" style="height: 4em;">
+                <div class="color-search">
+                </div>
+            </div>
+        </section>
+        <section class="bg-transparent search-results show-if-results">
+        </section>
+        <section class="page-search hide-if-results">
+            <div class="block">
+                <div class="logo">
+                    <span>
+                        <img class="image-normal" src="Images/eagle_white.png" width="200" height="200">
+                    </span>
+                    <h1 class="Title">Eagle</h1>
+                    <h1>Eye <span style="left: 25em;">images</span></h1>
+                </div>
+            </div>
+            <div class="block">
+                <div class="search-box">
+                    <div class="search-box-input">
+                        <div class="search-box-input-image">
+                            <span>
+                                <img src="Images/face/img_1.jpg">
+                            </span>
+                            <p>image.jpeg</p>
+                            <span class="search-box-input-image-close">&#10005;</span>
+                        </div>
+                        <input value="" type="search" class="search_input">
+                    </div>
+                    <div class="search-box-icons">
+                        <button class="choose_image icon">
+                            <img src="Images/svg/image2.svg" alt="" width="20">
+                        </button>
+                        <button class="search_submit icon">
+                            <img src="Images/svg/search.svg" alt="" width="20">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <span class="loading-animation">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </span>
+            </div>
+        </section>
+        <section class="show-if-loading">
+            <span class="loading-animation">
+                <div></div>
+                <div></div>
+                <div></div>
+            </span>
+            <h3>Please hold tight while we load the data for you. <br>It might take a while.</h3>
+        </section>
+    </main>
+    <canvas width="1920" height="1280" class="hide"></canvas>
+</body>
+<script src="js/Image_Processing.js"></script>
+<script src="js/XML_Database.js"></script>
+<script src="js/ISearchEngine.js"></script>
+<script src="js/ISearchEngine_Manager.js"></script>
+<script> window.onload = main(); </script>
+
+</html>

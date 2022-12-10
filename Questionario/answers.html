@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="js/form_manager.js"></script>
+  <script src="js/answers_manager.js" defer></script>
+  <script src="js/testejs_soparaguardaumafunction.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Lobster&family=Montserrat:ital@1&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d974e5062b.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="css/style.css" rel="stylesheet">
+
+  <title>Respostas</title>
+</head>
+
+<body onload="populate_results()">
+  <nav class="main all-height">
+    <div class="brand-box">
+      <span class="brand">Pesquisa de Fotos Digitais</span>
+    </div>
+
+    <div class="text-box">
+      <h1 class="heading-primary">
+        <span class="heading-primary-main">Respostas</span>
+        <span class="heading-primary-sub">Aqui encontra-se a analise às respostas dadas pelos colaboradores!<br></span>
+      </h1>
+
+      <a href="#" id="startQuest" class="btn btn-white btn-animated">Ver Respostas</a>
+    </div>
+    <!-- Tab navigation -->
+    <nav class="navbar col-12 d-none">
+      <ul class="tab rounded-pill w-100">
+        <li>
+          <a href="javascript:void(0)" class="tablinks rounded-pill tab1" onclick="open_tab(event, 'tab1')"
+            id="default_open">Caracterização</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" class="tablinks rounded-pill tab2" onclick="open_tab(event, 'tab2')">Tarefas</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" class="tablinks rounded-pill tab3" onclick="open_tab(event, 'tab3')">Avaliação
+            Global</a>
+        </li>
+      </ul>
+    </nav>
+  </nav>
+<main class="col-lg-12" id="t03">
+  <section id="tab1" class="tabcontent mt-3">
+    <h4>1- Qual é a sua idade? *</h4>
+    <div id="age"></div><br />
+    <canvas id="can" width="200" height="200"></canvas>
+
+    <h4>2- Genero? *</h4>
+    <div id="gender"></div><br />
+
+    <h4>3- Com que frequencia usa a Internet?</h4>
+    <div id="internet_usage"></div><br />
+
+    <h4>4- Web Browsers que mais utiliza: **</h4>
+    <div id="primeiro">
+    <p><strong>Browser Preferido</strong></p>
+    </div><br />
+    <div id="segundo">
+    <p><strong>Browser Segundo Opção</strong></p>
+    </div><br />
+    <div id="terceiro">
+      <p><strong>Browser Terceira Opção</strong></p>
+    </div><br />
+
+    <h4>5- Conhece outros sites de pesquisa de imagem?</h4>
+    <div id="other_search_engine"></div><br />
+    <h4>6 - Se sim a resposta anterior quais?</h4>
+    <div id="other_search_engine_quais"></div>
+  </section>
+  <section id="tab2" class="tabcontent">
+    <h4>7- Indique se encontrou algum erro ou se sentiu alguma dificuldade em perceber as
+      funcionalidades principais do website.</h4>
+    <div id="task_01"></div><br />
+
+    <h4>8- Como classifica os resultados obtidos pela pesquisa por categoria (1 significa “Maus” e 5
+      significa “Excelentes”)? *</h4>
+    <div id="task_02_8"></div><br />
+
+    <h4>9- Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</h4>
+    <div id="task_02_9"></div><br />
+    <h4>10- Como classifica os resultados obtidos pela pesquisa por cor (1 significa “Maus” e 5
+      significa “Excelentes”)? *</h4>
+    <div id="task_02_10"></div><br />
+    <h4>11- Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</h4>
+    <div id="task_02_11"></div><br />
+    <h4>12- Como classifica os resultados obtidos pela pesquisa por imagem semelhante (1 significa
+      “Maus” e 5 significa “Excelentes”)? *</h4>
+    <div id="task_02_12"></div><br />
+    <h4>13- Como classifica a utilidade da pesquisa por Imagens Semelhantes (1 significa “Pouca” e 5
+      significa “Muita”)? *</h4>
+    <div id="task_02_13"></div><br />
+    <h4>14 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</h4>
+    <div id="task_02_14"></div><br />
+    <h4>15 - Qual o tipo de pesquisa que acha mais adequado?</h4>
+    <div id="task_02_15"></div><br />
+  </section>
+  <section id="tab3" class="tabcontent">
+    <h4>16 - Para cada par de adjetivos, selecione a opção que melhor descreve a sua experiência de utilização deste
+      site.</h4>
+    <div id="global_evaluation_01"></div><br />
+
+    <h4>17 - Acho que gostaria de utilizar este website com frequência. *</h4>
+    <div id="global_evaluation_17"></div><br />
+    <canvas id="can2" width="200" height="200"></canvas>
+    <h4>18 - Considerei o website mais complexo do que necessário. *</h4>
+    <div id="global_evaluation_18"></div><br />
+
+
+    <h4>19 - Achei o website fácil de utilizar. *</h4>
+    <div id="global_evaluation_19"></div><br />
+
+    <h4>20 - Acho que necessitaria de ajuda de um técnico para conseguir utilizar este website.
+      *</h4>
+    <div id="global_evaluation_20"></div><br />
+
+    <h4>21 - Considerei que as várias funcionalidades deste website estavam bem integradas. *</h4>
+    <div id="global_evaluation_21"></div><br />
+
+    <h4>22 - Achei que este website tinha muitas inconsistências. *</h4>
+    <div id="global_evaluation_22"></div><br />
+    <h4>23 - Suponho que a maioria das pessoas aprenderia a utilizar rapidamente este website.
+      *</h4>
+    <div id="global_evaluation_23"></div><br />
+    <h4>24 - Considerei o website muito complicado de utilizar. *</h4>
+    <div id="global_evaluation_24"></div><br />
+    <h4>25 - Senti-me muito confiante a utilizar este website. *</h4>
+    <div id="global_evaluation_25"></div><br />
+    <h4>26 - Tive que aprender muito antes de conseguir lidar com este website.*</h4>
+    <div id="global_evaluation_26"></div><br />
+
+  </section>
+  </main>
+  <script type="text/javascript">
+    // Get the element with id="default_open" and click on it
+    document.getElementById("default_open").click();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proza+Libre">
+
+    <link rel="stylesheet" href="css/style.css" media="screen">
+
+    <script src="https://kit.fontawesome.com/d974e5062b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="js/form_manager.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#startQuest').click(function () {
+                initializeQuestionary();
+            });
+            $('#t03').submit(function (e) {
+                let counter = 0;
+                $(':input[required]').each(function (i, requiredField) {
+                    counter = formValidation(requiredField);
+                });
+                if (counter) {
+                    $('#log').text("* Não preencheu todos os campos obrigatórios!");
+                    $('#logDiv').removeClass('d-none');
+                } else {
+                    handle_form();
+                    finalizeQuestionary();
+                }
+            });
+        });
+    </script>
+    <title>Questionario</title>
+</head>
+
+<body>
+    <nav class="main all-height">
+        <div class="brand-box">
+            <span class="brand">Pesquisa de Fotos Digitais</span>
+        </div>
+
+        <div class="text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary-main">Questionário</span>
+                <span class="heading-primary-sub">O website Search Photos tem como objetivo apresentar imagens
+                    relevantes para o utilizador.
+                    Assim, são disponibilizados três métodos de pesquisa: <br /><br />
+                    • Pesquisa por categoria;<br /><br />
+                    • Pesquisa por cor;<br /><br />
+                    • Pesquisa por imagem semelhante.<br /><br />
+                    O utilizador pode procurar as imagens mais relevantes de uma determinada categoria, as
+                    imagens com mais percentagem de uma cor, e as imagens mais parecidas com uma imagem
+                    introduzida pelo utilizador.
+                    <br /><br />
+                    Este questionário destina-se a avaliar a experiência do utilizador incluindo a usabilidade do
+                    website. Pedimos-lhe que execute as tarefas abaixo descritas e, preenchendo este
+                    questionário, nos informe acerca das dificuldades que encontrou ao interagir com o sistema e
+                    nos dê a sua opinião acerca da interface e das funcionalidades disponíveis.
+                    <br /><br />
+                    <strong>* Questões de resposta obrigatória. <br>** Questão de resposta obrigatória (pelo menos uma
+                        preferência).</strong>
+                    <br /><br />
+                    Obrigado pela sua participação.</span>
+                <span class="heading-thankyou">Muito Obrigado pela sua participação!</span>
+            </h1>
+
+            <a href="#" id="startQuest" class="btn btn-white btn-animated">Começar
+                Questionário</a>
+        </div>
+        <!-- Tab navigation -->
+        <nav class="navbar col-12 d-none">
+            <ul class="tab rounded-pill w-100">
+                <li>
+                    <a href="javascript:void(0)" class="tablinks rounded-pill tab1" onclick="open_tab(event, 'tab1')"
+                        id="default_open">Caracterização</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="tablinks rounded-pill tab2"
+                        onclick="open_tab(event, 'tab2')">Tarefas</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="tablinks rounded-pill tab3"
+                        onclick="open_tab(event, 'tab3')">Avaliação
+                        Global</a>
+                </li>
+                <li class="float-right">
+                    <input id="submit-button" class="active rounded-pill" type="submit" name="submit" form="t03"
+                        value="Submeter">
+                </li>
+            </ul>
+
+            <progress class="w-100 text-warning" id="progress_bar" value="0" max="100"></progress>
+        </nav>
+    </nav>
+    <form class="col-lg-12" id="t03" action="javascript:void(0)" method="post" novalidate>
+        <div id="logDiv" class="ml-2 mb-1 row input-error d-none">
+            <div class="col">
+                <p id="log" class="">
+                </p>
+            </div>
+        </div>
+        <!--<p id="log" class="text-danger"></p>-->
+        <section id="tab1" class="tabcontent mt-3">
+            <!--PRIMEIRA QUESTAO START-->
+            <h6><strong>1 - Que idade tem? *</strong></h6>
+
+            <label class="ml-1" for="age_18">
+                <input type="radio" name="age" value="18" id="age_18" onchange="increment_progress_bar(event)" required>
+                <span>18</span>
+            </label>
+
+            <label class="ml-1" for="age_18_25">
+                <input type="radio" name="age" value="18_25" id="age_18_25" onchange="increment_progress_bar(event)"
+                    required>
+                <span>18-25</span>
+            </label>
+
+            <label class="ml-1" for="age_26_33">
+                <input type="radio" name="age" value="26_33" id="age_26_33" onchange="increment_progress_bar(event)"
+                    required>
+                <span>26-33</span>
+            </label>
+
+            <label class="ml-1" for="age_34_40">
+                <input type="radio" name="age" value="34_40" id="age_34_40" onchange="increment_progress_bar(event)"
+                    required>
+                <span>34-40</span>
+            </label>
+
+            <label class="ml-1" for="age_40">
+                <input type="radio" name="age" value="40" id="age_40" onchange="increment_progress_bar(event)" required>
+                <span> 40</span>
+            </label><br /><br>
+            <!--PRIMEIRA QUESTAO END-->
+            <!--SEGUNDA QUESTAO START-->
+            <h6><strong>2 - Genero *</strong></h6>
+            <label for="gender_male">
+                <input type="radio" name="gender" value="male" id="gender_male" onchange="increment_progress_bar(event)"
+                    required>
+                <span>Masculino</span>
+            </label>
+            <label class="ml-1" for="gender_female">
+                <input type="radio" name="gender" value="female" id="gender_female"
+                    onchange="increment_progress_bar(event)" required>
+                <span>Feminino</span>
+            </label><br><br>
+            <!--SEGUNDA QUESTAO END-->
+            <!--TERCEIRA QUESTAO START-->
+            <h6><strong>3 - Com que frequência utilizas a Internet? *</strong></h6>
+            <label class="ml-1" for="internet_usage_more_2hours">
+                <input type="radio" name="internet_usage" value="more_2hours" id="internet_usage_more_2hours"
+                    onchange="increment_progress_bar(event)" required>
+                <span>Mais do que 2 horas/dia</span>
+            </label>
+
+            <label for="internet_usage_less_2hours">
+                <input type="radio" name="internet_usage" value="less_2hours" id="internet_usage_less_2hours"
+                    onchange="increment_progress_bar(event)" required>
+                <span>Menos do que 2horas/dia</span>
+            </label>
+
+            <label class="ml-1" for="internet_usage_sometimes_per_week">
+                <input type="radio" name="internet_usage" value="sometimes_per_week"
+                    id="internet_usage_sometimes_per_week" onchange="increment_progress_bar(event)" required>
+                <span>Várias vezes por semana</span>
+            </label>
+
+            <label class="ml-1" for="internet_usage_weekly">
+                <input type="radio" name="internet_usage" value="weekly" id="internet_usage_weekly"
+                    onchange="increment_progress_bar(event)" required>
+                <span>Semanalmente</span>
+            </label>
+
+            <label class="ml-1" for="internet_usage_monthly">
+                <input type="radio" name="internet_usage" value="monthly" id="internet_usage_monthly"
+                    onchange="increment_progress_bar(event)" required>
+                <span>Mensalmente</span>
+            </label><br /><br>
+            <!--TERCEIRA QUESTAO END-->
+            <!--QUARTA QUESTAO START-->
+            <h6><strong>4 - Indique, por ordem de preferência, os Web browsers que mais utiliza.<br />
+                    Deve indicar 3. Utilize valores de 1 a 3, sendo 1 o mais preferido e 3 o menos. **</strong></h6>
+            <!--TODO-->
+            <label for="primeiro">Opção Preferida</label>
+            <select id="primeiro" name="primeiro" onchange="checkBrowser(this, event)" required>
+                <option value="">Selecione uma opção</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Firefox">Firefox</option>
+                <option value="Internet Explorer">Internet Explorer</option>
+                <option value="Opera">Opera</option>
+                <option value="Safari">Safari</option>
+            </select>
+            <br>
+            <label for="segundo">Opção 2</label>
+            <select id="segundo" name="segundo" onchange="checkBrowser(this, event)">
+                <option value="">Selecione uma opção</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Firefox">Firefox</option>
+                <option value="Internet Explorer">Internet Explorer</option>
+                <option value="Opera">Opera</option>
+                <option value="Safari">Safari</option>
+            </select>
+            <br>
+            <label for="terceiro">Opção 3</label>
+            <select id="terceiro" name="terceiro" onchange="checkBrowser(this, event)">
+                <option value="">Selecione uma opção</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Firefox">Firefox</option>
+                <option value="Internet Explorer">Internet Explorer</option>
+                <option value="Opera">Opera</option>
+                <option value="Safari">Safari</option>
+            </select>
+            <br>
+            <!--QUARTA QUESTAO END-->
+            <!--QUINTA QUESTAO START-->
+            <h6><strong>5-Utiliza outros websites ou aplicações para procurar imagens/fotografias digitais?</strong>
+            </h6>
+            <label for="other_search_engine_yes">
+                <input type="radio" name="other_search_engine" value="yes" id="other_search_engine_yes"
+                    onchange="Write_Text(event) ">
+                <span>Sim</span>
+            </label>
+
+            <label for="other_search_engine_no">
+                <input type="radio" name="other_search_engine" value="no" id="other_search_engine_no"
+                    onchange="Write_Text(event) ">
+                <span>Nao</span>
+            </label><br>
+            <label id="other_search_engine_quais_label" class="d-none" for="other_search_engine_quais">
+                <span><strong>6-Quais</strong></span>
+                <textarea name="other_search_engine_quais" cols="40" rows="1"
+                    disabled></textarea>
+
+            </label>
+            <br />
+            <br />
+            <!--QUINTA QUESTAO END-->
+            <!--Botao Next-->
+            <a class="btn btn-primary mb-5" href="#" role="button" type="button"
+                onclick="open_tab(event, 'tab2')">Next</a>
+
+        </section>
+
+        <section id="tab2" class="tabcontent">
+            <h3>Por favor, realize as seguintes tarefas e descreva-nos os resultados obtidos.</h3>
+            <h4><strong>Tarefa 1 - Explorar o website</strong> </h4>
+            <h5>Explore o website livremente durante alguns minutos de modo a ficar mais familiarizado com
+                as funcionalidades do website.
+            </h5>
+            <!--PRIMEIRA QUESTAO START-->
+            <h6><strong>7 - Indique se encontrou algum erro ou se sentiu alguma dificuldade em perceber as
+                    funcionalidades principais do website.</strong></h6>
+            <label for="tarefa1">
+                <textarea name="task_01" cols="75" rows="5" oninput="increment_progress_bar(event)"></textarea>
+            </label>
+            <!--PRIMEIRA QUESTAO END-->
+            <!--SEGUNDA QUESTAO START-->
+            <h4><strong>Tarefa 2 - Pesquisar Imagens</strong> </h4>
+            <h5>Escolha a opção de pesquisa por palavra chave, selecione uma categoria à sua escolha e
+                observe os resultados. Repita a pesquisa com outras categorias.
+            </h5>
+            <h6><strong>8 - Como classifica os resultados obtidos pela pesquisa por categoria (1 significa “Maus” e 5
+                    significa “Excelentes”)? *</strong></h6>
+            <label for="task_02_8_1">
+                <span>1 </span>
+                <input type="radio" name="task_02_8" value="1" id="task_02_8_1" onchange="increment_progress_bar(event)"
+                    required>
+
+            </label>
+
+            <label for="task_02_8_2">
+                <span>2</span>
+                <input type="radio" name="task_02_8" value="2" id="task_02_8_2" onchange="increment_progress_bar(event)"
+                    required>
+
+            </label>
+
+            <label for="task_02_8_3">
+                <span>3</span>
+                <input type="radio" name="task_02_8" value="3" id="task_02_8_3" onchange="increment_progress_bar(event)"
+                    required>
+
+            </label>
+
+            <label for="task_02_8_4">
+                <span>4</span>
+                <input type="radio" name="task_02_8" value="4" id="task_02_8_4" onchange="increment_progress_bar(event)"
+                    required>
+
+            </label>
+
+            <label for="task_02_8_5">
+                <span> 5</span>
+                <input type="radio" name="task_02_8" value="5" id="task_02_8_5" onchange="increment_progress_bar(event)"
+                    required>
+
+            </label><br />
+            <!--SEGUNDA QUESTAO END-->
+            <!--TERCEIRA QUESTAO START-->
+            <h6><strong>9 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</strong>
+            </h6>
+            <label for="tarefa2_9">
+                <textarea name="task_02_9" cols="75" rows="5" oninput="increment_progress_bar(event)"></textarea>
+            </label>
+            <!--TERCEIRA QUESTAO END-->
+            <!--QUARTA QUESTAO START-->
+            <h6><strong>10 - Como classifica os resultados obtidos pela pesquisa por cor (1 significa “Maus” e 5
+                    significa “Excelentes”)? *</strong> </h6>
+            <label for="task_02_10_1">
+                <span>1</span>
+                <input type="radio" name="task_02_10" value="1" id="task_02_10_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_10_2">
+                <span>2</span>
+                <input type="radio" name="task_02_10" value="2" id="task_02_10_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_10_3">
+                <span>3</span>
+                <input type="radio" name="task_02_10" value="3" id="task_02_10_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_10_4">
+                <span>4</span>
+                <input type="radio" name="task_02_10" value="4" id="task_02_10_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_10_5">
+                <span> 5</span>
+                <input type="radio" name="task_02_10" value="5" id="task_02_10_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+
+            <!--QUARTA QUESTAO END-->
+            <!--QUINTA QUESTAO START-->
+            <h6><strong>11 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</strong>
+            </h6>
+            <label for="tarefa2_11">
+                <textarea name="task_02_11" cols="75" rows="5" oninput="increment_progress_bar(event)"></textarea>
+            </label>
+            <!--QUINTA QUESTAO END-->
+            <!--SEXTA QUESTAO START-->
+            <h6><strong>12 - Como classifica os resultados obtidos pela pesquisa por imagem semelhante (1 significa
+                    “Maus” e 5 significa “Excelentes”)? *</strong></h6>
+            <label for="task_02_12_1">
+                <span>1</span>
+                <input type="radio" name="task_02_12" value="1" id="task_02_12_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_12_2">
+                <span>2</span>
+                <input type="radio" name="task_02_12" value="2" id="task_02_12_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_12_3">
+                <span>3</span>
+                <input type="radio" name="task_02_12" value="3" id="task_02_12_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_12_4">
+                <span>4</span>
+                <input type="radio" name="task_02_12" value="4" id="task_02_12_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_12_5">
+                <span> 5</span>
+                <input type="radio" name="task_02_12" value="5" id="task_02_12_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--SEXTA QUESTAO END-->
+            <!--SETIMA QUESTAO START-->
+            <h6><strong>13 - Como classifica a utilidade da pesquisa por Imagens Semelhantes (1 significa “Pouca” e 5
+                    significa “Muita”)? *</strong></h6>
+            <label for="task_02_13_1">
+                <span>1</span>
+                <input type="radio" name="task_02_13" value="1" id="task_02_13_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_13_2">
+                <span>2</span>
+                <input type="radio" name="task_02_13" value="2" id="task_02_13_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_13_3">
+                <span>3</span>
+                <input type="radio" name="task_02_13" value="3" id="task_02_13_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_13_4">
+                <span>4</span>
+                <input type="radio" name="task_02_13" value="4" id="task_02_13_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="task_02_13_5">
+                <span> 5</span>
+                <input type="radio" name="task_02_13" value="5" id="task_02_13_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--SETIMA QUESTAO END-->
+            <!--OITAVA QUESTAO START-->
+            <h6><strong>14 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</strong>
+            </h6>
+            <label for="tarefa2_14">
+                <textarea name="task_02_14" cols="75" rows="5" oninput="increment_progress_bar(event)"></textarea>
+            </label>
+            <!--OITAVA QUESTAO END-->
+            <!--NONA QUESTAO START-->
+            <h6><strong>15 - Qual o tipo de pesquisa que acha mais adequado?</strong></h6>
+            <label for="tarefa2_15">
+                <textarea name="task_02_15" cols="75" rows="5" oninput="increment_progress_bar(event)"></textarea>
+            </label>
+            <!--NONA QUESTAO END-->
+
+            <br /><br />
+            <a class="btn btn-primary mb-5" href="#" role="button" type="button"
+                onclick="open_tab(event, 'tab1')">Previous</a>
+            <a class="btn btn-primary mb-5" href="#" role="button" type="button"
+                onclick="open_tab(event, 'tab3')">Next</a>
+        </section>
+
+        <section id="tab3" class="tabcontent">
+            <h3>Por favor, responda às seguintes questões para avaliar a sua experiência de utilização e a
+                usabilidade do website.</h3>
+            <h4>Experiência de utilização:</h4>
+            <!--PRIMEIRA QUESTAO START-->
+            <h6><strong>16 - Para cada par de adjetivos, selecione a opção que melhor descreve a sua experiência de
+                    utilização deste website.</strong></h6>
+            <div>
+                <span>Fantastica</span>
+                <input name="global_evaluation_01_01" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Horrivel</span>
+            </div><br /><br />
+            <div>
+                <span>Estimulante</span>
+                <input name="global_evaluation_01_02" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Aborrecida</span>
+            </div><br /><br />
+            <div>
+                <span>Gratificante</span>
+                <input name="global_evaluation_01_03" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Frustante</span>
+            </div><br /><br />
+            <div>
+                <span>Facil</span>
+                <input name="global_evaluation_01_04" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Dificil</span>
+            </div><br /><br />
+            <!--PRIMEIRA QUESTAO END-->
+            <!--SEGUNDA QUESTAO START-->
+            <h4><strong>SUS - System Usability Scale<br /><br />
+                    Para recolher as respostas é utilizada uma escala do tipo Likert com 5 opções de escolha (1
+                    significa “Discorda completamente” e 5 significa “Concorda completamente”).</strong></h4>
+            <br />
+            <h6><strong>17 - Acho que gostaria de utilizar este website com frequência. *</strong></h6>
+
+            <label for="global_evaluation_17_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_17" value="1" id="global_evaluation_17_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_17_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_17" value="2" id="global_evaluation_17_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_17_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_17" value="3" id="global_evaluation_17_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_17_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_17" value="4" id="global_evaluation_17_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_17_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_17" value="5" id="global_evaluation_17_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--SEGUNDA QUESTAO END-->
+            <!--TERCEIRA QUESTAO START-->
+            <h6><strong>18 - Considerei o website mais complexo do que necessário. *</strong></h6>
+            <label for="global_evaluation_18_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_18" value="1" id="global_evaluation_18_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_18_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_18" value="2" id="global_evaluation_18_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_18_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_18" value="3" id="global_evaluation_18_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_18_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_18" value="4" id="global_evaluation_18_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_18_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_18" value="5" id="global_evaluation_18_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--TERCEIRA QUESTAO END-->
+            <!--QUARTA QUESTAO START-->
+            <h6><strong>19 - Achei o website fácil de utilizar. *</strong></h6>
+            <label for="global_evaluation_19_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_19" value="1" id="global_evaluation_19_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_19_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_19" value="2" id="global_evaluation_19_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_19_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_19" value="3" id="global_evaluation_19_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_19_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_19" value="4" id="global_evaluation_19_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_19_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_19" value="5" id="global_evaluation_19_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--QUARTA QUESTAO END-->
+            <!--QUINTA QUESTAO START-->
+            <h6><strong>20 - Acho que necessitaria de ajuda de um técnico para conseguir utilizar este website.
+                    *</strong></h6>
+            <label for="global_evaluation_20_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_20" value="1" id="global_evaluation_20_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_20_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_20" value="2" id="global_evaluation_20_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_20_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_20" value="3" id="global_evaluation_20_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_20_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_20" value="4" id="global_evaluation_20_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_20_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_20" value="5" id="global_evaluation_20_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--QUINTA QUESTAO END-->
+            <!--SEXTA QUESTAO START-->
+            <h6><strong>21 - Considerei que as várias funcionalidades deste website estavam bem integradas. *</strong>
+            </h6>
+            <label for="global_evaluation_21_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_21" value="1" id="global_evaluation_21_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_21_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_21" value="2" id="global_evaluation_21_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_21_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_21" value="3" id="global_evaluation_21_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_21_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_21" value="4" id="global_evaluation_21_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_21_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_21" value="5" id="global_evaluation_21_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--SEXTA QUESTAO END-->
+            <!--SETIMA QUESTAO START-->
+            <h6><strong>22 - Achei que este website tinha muitas inconsistências. *</strong></h6>
+            <label for="global_evaluation_22_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_22" value="1" id="global_evaluation_22_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_22_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_22" value="2" id="global_evaluation_22_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_22_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_22" value="3" id="global_evaluation_22_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_22_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_22" value="4" id="global_evaluation_22_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_22_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_22" value="5" id="global_evaluation_22_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--SETIMA QUESTAO END-->
+            <!--OITAVA QUESTAO START-->
+            <h6><strong>23 - Suponho que a maioria das pessoas aprenderia a utilizar rapidamente este website.
+                    *</strong></h6>
+            <label for="global_evaluation_23_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_23" value="1" id="global_evaluation_23_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_23_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_23" value="2" id="global_evaluation_23_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_23_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_23" value="3" id="global_evaluation_23_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_23_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_23" value="4" id="global_evaluation_23_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_23_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_23" value="5" id="global_evaluation_23_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--OITAVA QUESTAO END-->
+            <!--NONA QUESTAO START-->
+            <h6><strong>24 - Considerei o website muito complicado de utilizar. *</strong></h6>
+            <label for="global_evaluation_24_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_24" value="1" id="global_evaluation_24_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_24_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_24" value="2" id="global_evaluation_24_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_24_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_24" value="3" id="global_evaluation_24_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_24_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_24" value="4" id="global_evaluation_24_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_24_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_24" value="5" id="global_evaluation_24_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--NONA QUESTAO END-->
+            <!--DECIMA QUESTAO START-->
+            <h6><strong>25 - Senti-me muito confiante a utilizar este website. *</strong></h6>
+            <label for="global_evaluation_25_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_25" value="1" id="global_evaluation_25_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_25_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_25" value="2" id="global_evaluation_25_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_25_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_25" value="3" id="global_evaluation_25_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_25_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_25" value="4" id="global_evaluation_25_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_25_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_25" value="5" id="global_evaluation_25_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+            <!--DECIMA QUESTAO END-->
+            <!--DECIMA PRIMEIRA QUESTAO START-->
+            <h6><strong>26 - Tive que aprender muito antes de conseguir lidar com este website.*</strong></h6>
+            <label for="global_evaluation_26_1">
+                <span>1</span>
+                <input type="radio" name="global_evaluation_26" value="1" id="global_evaluation_26_1"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_26_2">
+                <span>2</span>
+                <input type="radio" name="global_evaluation_26" value="2" id="global_evaluation_26_2"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_26_3">
+                <span>3</span>
+                <input type="radio" name="global_evaluation_26" value="3" id="global_evaluation_26_3"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_26_4">
+                <span>4</span>
+                <input type="radio" name="global_evaluation_26" value="4" id="global_evaluation_26_4"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label>
+
+            <label for="global_evaluation_26_5">
+                <span> 5</span>
+                <input type="radio" name="global_evaluation_26" value="5" id="global_evaluation_26_5"
+                    onchange="increment_progress_bar(event)" required>
+
+            </label><br />
+
+            <br />
+            <a class="btn btn-primary mb-5" href="#" role="button" type="button"
+                onclick="open_tab(event, 'tab2')">Previous</a>
+            <!--DECIMA PRIMEIRA QUESTAO END-->
+            <!--<div>
+                <span>Fantastica</span>
+                <input name="global_evaluation_01_01" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Horrivel</span>
+            </div><br /><br />
+            <div>
+                <span>Estimulante</span>
+                <input name="global_evaluation_01_02" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Aborrecida</span>
+            </div><br /><br />
+            <div>
+                <span>Gratificante</span>
+                <input name="global_evaluation_01_03" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Frustante</span>
+            </div><br /><br />
+            <div>
+                <span>Facil</span>
+                <input name="global_evaluation_01_04" type="range" min="1" max="5" value="0"
+                    oninput="increment_progress_bar(event)">
+                <span>Dificil</span>-->
+        </section>
+    </form>
+    <script type="text/javascript">
+        // Get the element with id="default_open" and click on it
+        document.getElementById("default_open").click();
+    </script>
+
+
+</body>
+
+</html>

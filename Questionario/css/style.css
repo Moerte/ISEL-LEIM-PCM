@@ -1,0 +1,265 @@
+body {
+  font-family: "Hind Siliguri", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+}
+label {
+  font-size: 1em;
+}
+#t03 {
+  display: none;
+}
+
+.main {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(76, 216, 255, 0.8),
+      rgba(30, 108, 217, 0.8)
+    ),
+    url("../mutimedia/img/fish.jpeg");
+
+  background-size: cover;
+  background-position: top;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+.all-height {
+  height: 100vh;
+  position: relative;
+  transition: height 2s;
+}
+.half-height {
+  height: 20vh;
+  transition: height 2s;
+}
+
+.brand-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.brand {
+  font-size: 20px;
+  color: #fff;
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 30px;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 12px;
+}
+
+.heading-thankyou {
+  display: none;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Form */
+section#global_evaluation div {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section#global_evaluation div span {
+  padding: 15px;
+}
+
+/* Tab */
+.navbar {
+  animation: fadeIn ease 2.5s;
+  -webkit-animation: fadeIn ease 2.5s;
+  -moz-animation: fadeIn ease 2.5s;
+  -o-animation: fadeIn ease 2.5s;
+  -ms-animation: fadeIn ease 2.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+progress {
+  animation: fadeInProgress ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+@keyframes fadeInProgress {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeInProgress {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInProgress {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeInProgress {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeInProgress {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+ul.tab {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(30, 108, 217, 0.2);
+  margin-top: 8.5vh;
+}
+ul.tab li {
+  float: left;
+}
+
+ul.tab li a,
+ul.tab li input {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.tab .active {
+  background-color: rgba(76, 216, 255, 0.2);
+  color: white;
+  transition: background-color 1s;
+}
+
+/* Log Erro */
+.input-error {
+  border: 1px solid #ff3838;
+  /* background-color: #ff3838; */
+  vertical-align: middle;
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
+  opacity: 1;
+  width: fit-content;
+}
+
+.input-error p {
+  margin: 0px;
+  color: #ff3838;
+  font-weight: 800;
+}
